@@ -39,6 +39,7 @@ matrix:
         - LUA="luajit=2.1"
 
 before_install:
+  - pip2 install codecov
   - pip2 install hererocks
   - hererocks lua_install --$LUA -r latest
   - source lua_install/bin/activate
@@ -55,4 +56,4 @@ script:
 
 after_script:
   - luacov
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov -X gcov

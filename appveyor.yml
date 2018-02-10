@@ -27,4 +27,4 @@ test_script:
 
 after_test:
   - luacov
-  - codecov
+  - codecov -X gcov
