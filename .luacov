@@ -1,0 +1,4 @@
+modules = {
+   fakerock = "src/fakerock/init.lua",
+   ["fakerock.*"] = "src"
+}
