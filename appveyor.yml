@@ -27,4 +27,4 @@ test_script:
 
 after_test:
   - luacov
-  - codecov -X gcov
+  - codecov -f luacov.report.out -X gcov
