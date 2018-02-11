@@ -6,7 +6,7 @@
 
 This repository demonstrates how to setup up CI for a simple Lua project packaged for [LuaRocks](https://luarocks.org/). Builds are run on [Travis CI](https://travis-ci.org/) under Linux and Mac OS and on [AppVeyor](https://www.appveyor.com/) under Windows. On each platform there are separate builds using Lua 5.1, Lua 5.2, Lua 5.3, LuaJIT 2.0, and LuaJIT 2.1, using [hererocks](https://github.com/mpeterv/hererocks) to setup environment. Each build lints the code using [luacheck](https://github.com/mpeterv/luacheck), runs tests using [busted](https://olivinelabs.com/busted/), and collects test coverage using [LuaCov](https://keplerproject.github.io/luacov/). Test coverage is submitted to [Codecov](https://codecov.io).
 
-Improtant files:
+Important files:
 
 * `src/fakerock`: source files for the project.
 * `spec`: [busted](https://olivinelabs.com/busted/) tests.
