@@ -5,6 +5,7 @@ environment:
   - LUA: "lua=5.1"
   - LUA: "lua=5.2"
   - LUA: "lua=5.3"
+  - LUA: "lua=5.4"
   - LUA: "luajit=2.0"
   - LUA: "luajit=2.1"
 
@@ -12,11 +13,13 @@ before_build:
   - set PATH=C:\Python27\Scripts;%PATH%
   - pip install codecov
   - pip install hererocks
-  - hererocks lua_install --%LUA% -r latest
+  - hererocks lua_install --%LUA% -r 3
   - call lua_install\bin\activate
+  - git clone https://github.com/mpeterv/luafilesystem -b lua54-support && cd luafilesystem && luarocks make && cd ..
+  - luarocks install dkjson --deps-mode=none
   - luarocks install busted
-  - luarocks install cluacov
-  - luarocks install luacheck
+  - luarocks install luacov --deps-mode=none
+  - luarocks install luacheck --deps-mode=none
 
 build_script:
   - luarocks make

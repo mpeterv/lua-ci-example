@@ -13,6 +13,9 @@ matrix:
         - LUA="lua=5.3"
     - os: linux
       env:
+        - LUA="lua=5.4"
+    - os: linux
+      env:
         - LUA="luajit=2.0"
     - os: linux
       env:
@@ -32,6 +35,10 @@ matrix:
     - os: osx
       language: generic
       env:
+        - LUA="lua=5.4"
+    - os: osx
+      language: generic
+      env:
         - LUA="luajit=2.0"
     - os: osx
       language: generic
@@ -41,11 +48,13 @@ matrix:
 before_install:
   - pip2 install codecov
   - pip2 install hererocks
-  - hererocks lua_install --$LUA -r latest
+  - hererocks lua_install --$LUA -r 3
   - source lua_install/bin/activate
+  - git clone https://github.com/mpeterv/luafilesystem -b lua54-support && cd luafilesystem && luarocks make && cd ..
+  - luarocks install dkjson --deps-mode=none
   - luarocks install busted
-  - luarocks install cluacov
-  - luarocks install luacheck
+  - luarocks install luacov --deps-mode=none
+  - luarocks install luacheck --deps-mode=none
 
 install:
   - luarocks make
