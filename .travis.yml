@@ -57,7 +57,7 @@ before_install:
   - luarocks install luacheck --deps-mode=none
 
 install:
-  - luarocks make
+  - luarocks make --deps-mode=none
 
 script:
   - luacheck src spec

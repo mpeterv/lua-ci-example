@@ -22,7 +22,7 @@ before_build:
   - luarocks install luacheck --deps-mode=none
 
 build_script:
-  - luarocks make
+  - luarocks make --deps-mode=none
 
 test_script:
   - luacheck src spec
